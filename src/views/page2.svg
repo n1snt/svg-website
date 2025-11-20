@@ -1,0 +1,21 @@
+<svg width="400" height="250" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <text x="50%" y="12%" text-anchor="middle" dominant-baseline="middle" font-size="24" font-family="Arial">
+        Page 2
+    </text>
+
+    <image xlink:href="https://picsum.photos/200" x="125" y="60" width="150" height="120" preserveAspectRatio="xMidYMid meet"/>
+
+    <text x="50%" y="75%" text-anchor="middle" dominant-baseline="middle" font-size="14" font-family="Arial" fill="#666">
+        Image from URL
+    </text>
+
+    <rect id="backBtn2" x="30" y="200" width="100" height="40" rx="5" fill="#757575" stroke="#616161" stroke-width="2" cursor="pointer"/>
+    <text x="80" y="225" text-anchor="middle" dominant-baseline="middle" font-size="16" font-family="Arial" fill="white" pointer-events="none">
+        ← Back
+    </text>
+
+    <rect id="nextBtn2" x="270" y="200" width="100" height="40" rx="5" fill="#2196F3" stroke="#1976D2" stroke-width="2" cursor="pointer"/>
+    <text x="320" y="225" text-anchor="middle" dominant-baseline="middle" font-size="16" font-family="Arial" fill="white" pointer-events="none">
+        Next →
+    </text>
+</svg>

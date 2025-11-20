@@ -1,0 +1,19 @@
+<svg width="400" height="250" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <text x="50%" y="30%" text-anchor="middle" dominant-baseline="middle" font-size="24" font-family="Arial">
+        Page 3
+    </text>
+
+    <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-size="18" font-family="Arial" fill="#666">
+        This is the third page!
+    </text>
+
+    <rect id="backBtn3" x="30" y="200" width="100" height="40" rx="5" fill="#757575" stroke="#616161" stroke-width="2" cursor="pointer"/>
+    <text x="80" y="225" text-anchor="middle" dominant-baseline="middle" font-size="16" font-family="Arial" fill="white" pointer-events="none">
+        ← Back
+    </text>
+
+    <rect id="homeBtn" x="270" y="200" width="100" height="40" rx="5" fill="#4CAF50" stroke="#45a049" stroke-width="2" cursor="pointer"/>
+    <text x="320" y="225" text-anchor="middle" dominant-baseline="middle" font-size="16" font-family="Arial" fill="white" pointer-events="none">
+        Home
+    </text>
+</svg>
