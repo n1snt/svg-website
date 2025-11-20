@@ -1,0 +1,145 @@
+<svg width="400" height="250" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Page 1: Hello World -->
+    <g id="page1">
+        <text x="50%" y="15%" text-anchor="middle" dominant-baseline="middle" font-size="24" font-family="Arial">
+            Hello World
+        </text>
+
+        <text id="counter" x="50%" y="40%" text-anchor="middle" dominant-baseline="middle" font-size="32" font-family="Arial" font-weight="bold">
+            0
+        </text>
+
+        <rect id="subtractBtn" x="50" y="150" width="80" height="40" rx="5" fill="#f44336" stroke="#d32f2f" stroke-width="2" cursor="pointer"/>
+        <text x="90" y="175" text-anchor="middle" dominant-baseline="middle" font-size="20" font-family="Arial" fill="white" pointer-events="none">
+            −
+        </text>
+
+        <rect id="addBtn" x="150" y="150" width="80" height="40" rx="5" fill="#4CAF50" stroke="#45a049" stroke-width="2" cursor="pointer"/>
+        <text x="190" y="175" text-anchor="middle" dominant-baseline="middle" font-size="20" font-family="Arial" fill="white" pointer-events="none">
+            +
+        </text>
+
+        <rect id="nextBtn1" x="270" y="150" width="100" height="40" rx="5" fill="#2196F3" stroke="#1976D2" stroke-width="2" cursor="pointer"/>
+        <text x="320" y="175" text-anchor="middle" dominant-baseline="middle" font-size="16" font-family="Arial" fill="white" pointer-events="none">
+            Next →
+        </text>
+    </g>
+
+    <!-- Page 2 -->
+    <g id="page2" display="none">
+        <text x="50%" y="12%" text-anchor="middle" dominant-baseline="middle" font-size="24" font-family="Arial">
+            Page 2
+        </text>
+
+        <image xlink:href="https://picsum.photos/200" x="125" y="60" width="150" height="120" preserveAspectRatio="xMidYMid meet"/>
+
+        <text x="50%" y="75%" text-anchor="middle" dominant-baseline="middle" font-size="14" font-family="Arial" fill="#666">
+            Image from URL
+        </text>
+
+        <rect id="backBtn2" x="30" y="200" width="100" height="40" rx="5" fill="#757575" stroke="#616161" stroke-width="2" cursor="pointer"/>
+        <text x="80" y="225" text-anchor="middle" dominant-baseline="middle" font-size="16" font-family="Arial" fill="white" pointer-events="none">
+            ← Back
+        </text>
+
+        <rect id="nextBtn2" x="270" y="200" width="100" height="40" rx="5" fill="#2196F3" stroke="#1976D2" stroke-width="2" cursor="pointer"/>
+        <text x="320" y="225" text-anchor="middle" dominant-baseline="middle" font-size="16" font-family="Arial" fill="white" pointer-events="none">
+            Next →
+        </text>
+    </g>
+
+    <!-- Page 3 -->
+    <g id="page3" display="none">
+        <text x="50%" y="30%" text-anchor="middle" dominant-baseline="middle" font-size="24" font-family="Arial">
+            Page 3
+        </text>
+
+        <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-size="18" font-family="Arial" fill="#666">
+            This is the third page!
+        </text>
+
+        <rect id="backBtn3" x="30" y="200" width="100" height="40" rx="5" fill="#757575" stroke="#616161" stroke-width="2" cursor="pointer"/>
+        <text x="80" y="225" text-anchor="middle" dominant-baseline="middle" font-size="16" font-family="Arial" fill="white" pointer-events="none">
+            ← Back
+        </text>
+
+        <rect id="homeBtn" x="270" y="200" width="100" height="40" rx="5" fill="#4CAF50" stroke="#45a049" stroke-width="2" cursor="pointer"/>
+        <text x="320" y="225" text-anchor="middle" dominant-baseline="middle" font-size="16" font-family="Arial" fill="white" pointer-events="none">
+            Home
+        </text>
+    </g>
+
+    <script href="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        <![CDATA[
+            let count = 0;
+            let currentPage = 1;
+
+            // Load count from localStorage
+            function loadCount() {
+                const savedCount = localStorage.getItem('counter');
+                if (savedCount !== null) {
+                    count = parseInt(savedCount, 10);
+                    $('#counter').text(count);
+                }
+            }
+
+            // Save count to localStorage
+            function saveCount() {
+                localStorage.setItem('counter', count.toString());
+            }
+
+            // Update counter display
+            function updateCounter() {
+                $('#counter').text(count);
+                saveCount();
+            }
+
+            function showPage(pageNum) {
+                document.getElementById('page1').setAttribute('display', 'none');
+                document.getElementById('page2').setAttribute('display', 'none');
+                document.getElementById('page3').setAttribute('display', 'none');
+                document.getElementById('page' + pageNum).removeAttribute('display');
+                currentPage = pageNum;
+            }
+
+            $(document).ready(function() {
+                // Load saved count on page load
+                loadCount();
+
+                // Add button
+                $('#addBtn').on('click', function() {
+                    count++;
+                    updateCounter();
+                });
+
+                // Subtract button
+                $('#subtractBtn').on('click', function() {
+                    count--;
+                    updateCounter();
+                });
+
+                // Navigation buttons
+                $('#nextBtn1').on('click', function() {
+                    showPage(2);
+                });
+
+                $('#backBtn2').on('click', function() {
+                    showPage(1);
+                });
+
+                $('#nextBtn2').on('click', function() {
+                    showPage(3);
+                });
+
+                $('#backBtn3').on('click', function() {
+                    showPage(2);
+                });
+
+                $('#homeBtn').on('click', function() {
+                    showPage(1);
+                });
+            });
+        ]]>
+    </script>
+</svg>
